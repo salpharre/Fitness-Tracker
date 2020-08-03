@@ -2,19 +2,19 @@ const db = require("../models");
 
 module.exports = function(app) {
     //get all workouts
-    app.get("/api/workouts", (req, res) {
+    app.get("/api/workouts", (req, res) => {
 
     });
     //update workout
-    app.put("/api/workouts/:id", (req, res) {
+    app.put("/api/workouts/:id", (req, res) => {
 
     });
     //add new workout
-    app.post("/api/workouts", (req, res) {
+    app.post("/api/workouts", (req, res) => {
 
     });
     //get workouts in range
-    app.get("/api/workouts/range", (req, res) {
+    app.get("/api/workouts/range", (req, res) => {
 
     });
 };
