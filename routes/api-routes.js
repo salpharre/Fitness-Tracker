@@ -1,6 +1,6 @@
 const db = require("../models");
 
-modules.exports = function(app) {
+module.exports = function(app) {
     //get all workouts
     app.get("/api/workouts", (req, res) {
 
