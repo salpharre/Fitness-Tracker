@@ -17,6 +17,7 @@ app.use(express.static("public"));
 
 mongoose.connect(process.env.ORMONGO_URL || "mongodb://localhost/workout", {useNewUrlParser: true, useFindAndModify: false});
 
+require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 
 // Start the server
