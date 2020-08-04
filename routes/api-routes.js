@@ -9,16 +9,20 @@ module.exports = function(app) {
             res.json(err);
         });
     });
+     //get workouts in range
+     app.get("/api/workouts/range", (req, res) => {
+        //for stats html
+    });
+    //get last workout by id
+    app.get("/api/workouts/:id", (req, res) => {
+        //to work with 'continue workout' button on index html
+    });
     //update workout
     app.put("/api/workouts/:id", (req, res) => {
-
+        //exercise.js --> findOneAndUpdate
     });
     //add new workout
     app.post("/api/workouts", (req, res) => {
-
-    });
-    //get workouts in range
-    app.get("/api/workouts/range", (req, res) => {
-
+        //exercise.js
     });
 };
