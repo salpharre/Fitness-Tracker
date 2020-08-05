@@ -1,7 +1,7 @@
 const db = require("../models");
 
 module.exports = function(app) {
-    //get all workouts
+    //get all workouts, works with index html
     app.get("/api/workouts", (req, res) => {
         db.Workout.find({}).then(workout => {
             res.json(workout);
@@ -9,9 +9,13 @@ module.exports = function(app) {
             res.json(err);
         });
     });
-     //get workouts in range
+     //get workouts' range, to render data for stats html
      app.get("/api/workouts/range", (req, res) => {
-        //for stats html
+        db.Workout.find({}).then(data => {
+            res.json(data);
+        }).catch(err => {
+            res.json(err);
+        })
     });
     //get last workout by id
     app.get("/api/workouts/:id", (req, res) => {
