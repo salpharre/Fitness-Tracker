@@ -1,7 +1,7 @@
 const db = require("../models");
 
 module.exports = function(app) {
-    //get all workouts, works with index html
+    //Get last workout, works with index html
     app.get("/api/workouts", (req, res) => {
         db.Workout.find({}).then(workout => {
             res.json(workout);
@@ -9,24 +9,30 @@ module.exports = function(app) {
             res.json(err);
         });
     });
-     //get workouts' range, to render data for stats html
+     //Get workouts' range, to render data for stats html
+     //Limits number of workouts to 7
      app.get("/api/workouts/range", (req, res) => {
-        db.Workout.find({}).then(data => {
+        db.Workout.find({}).limit(7).then(data => {
             res.json(data);
         }).catch(err => {
             res.json(err);
         })
     });
-    //get last workout by id
-    app.get("/api/workouts/:id", (req, res) => {
-        //to work with 'continue workout' button on index html
-    });
-    //update workout
-    app.put("/api/workouts/:id", (req, res) => {
-        //exercise.js --> findOneAndUpdate
-    });
-    //add new workout
+    //Post route to create new empty workout document
     app.post("/api/workouts", (req, res) => {
-        //exercise.js
+        db.Workout.create({}).then(data => {
+            res.json(data);
+        }).catch(err => {
+            res.json(err);
+        });
+    });
+    //Update and existing workout document and adding exercises to exercises array
+    //Deconstructs req into an object containing the incoming data(body), and the id(params) used to make the call
+    app.put("/api/workouts/:id", ({body, params}, res) => {
+        db.Workout.findByIdAndUpdate(params.id, { $push: { exercises: body } }, { new: true }).then(workout => {
+            res.json(workout);
+        }).catch(err => {
+            res.json(err);
+        });
     });
 };

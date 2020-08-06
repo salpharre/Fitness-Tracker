@@ -1,3 +1,4 @@
+//Selects all elements needed to manipulate DOM
 const workoutTypeSelect = document.querySelector("#type");
 const cardioForm = document.querySelector(".cardio-form");
 const resistanceForm = document.querySelector(".resistance-form");
@@ -16,7 +17,7 @@ const newWorkout = document.querySelector(".new-workout")
 
 let workoutType = null;
 let shouldNavigateAway = false;
-
+//if there is no 'last workout' then create a new workout(document)
 async function initExercise() {
   let workout;
 
@@ -31,7 +32,7 @@ async function initExercise() {
 }
 
 initExercise();
-
+//Checks what workout type was chosen and shows or hides block of html corresponding to that selection
 function handleWorkoutTypeChange(event) {
   workoutType = event.target.value;
 
@@ -48,7 +49,7 @@ function handleWorkoutTypeChange(event) {
 
   validateInputs();
 }
-
+//Makes sure no inputs are empty
 function validateInputs() {
   let isValid = true;
 
@@ -94,7 +95,7 @@ function validateInputs() {
     addButton.setAttribute("disabled", true);
   }
 }
-
+//when submit button is chosen values from inputs are grabbed and sent via 'addExercise' api 
 async function handleFormSubmit(event) {
   event.preventDefault();
 
@@ -118,14 +119,14 @@ async function handleFormSubmit(event) {
   clearInputs();
   toast.classList.add("success");
 }
-
+//Once success message ends navigate to home page
 function handleToastAnimationEnd() {
   toast.removeAttribute("class");
   if (shouldNavigateAway) {
     location.href = "/";
   }
 }
-
+//clears inputs once submit button is clicked
 function clearInputs() {
   cardioNameInput.value = "";
   nameInput.value = "";
@@ -136,7 +137,7 @@ function clearInputs() {
   resistanceDurationInput.value = "";
   weightInput.value = "";
 }
-
+///////////////////////////////Handles click listeners for drop down menu and buttons////////////////////////////
 if (workoutTypeSelect) {
   workoutTypeSelect.addEventListener("change", handleWorkoutTypeChange);
 }

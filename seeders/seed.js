@@ -1,3 +1,4 @@
+//Pre-made data to pre-'seed' database to check if app works while developing
 let mongoose = require("mongoose");
 let db = require("../models");
 

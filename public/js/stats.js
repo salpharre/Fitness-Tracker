@@ -33,6 +33,7 @@ API.getWorkoutsInRange()
 
   return arr;
   }
+//Utilizes chart.js package to display database data
 function populateChart(data) {
   let durations = duration(data);
   let pounds = calculateTotalWeight(data);
@@ -185,7 +186,7 @@ function populateChart(data) {
     }
   });
 }
-
+//pulls out all durations from exercises array
 function duration(data) {
   let durations = [];
 
@@ -197,7 +198,7 @@ function duration(data) {
 
   return durations;
 }
-
+//pulls out all weights from exercises array
 function calculateTotalWeight(data) {
   let total = [];
 
@@ -209,7 +210,7 @@ function calculateTotalWeight(data) {
 
   return total;
 }
-
+//pulls out all names of workouts from exercises array
 function workoutNames(data) {
   let workouts = [];
 

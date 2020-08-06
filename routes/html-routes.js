@@ -1,3 +1,4 @@
+//Require path module for rendering html files
 const path = require("path");
 
 module.exports = function(app) {

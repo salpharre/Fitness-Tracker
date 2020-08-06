@@ -21,6 +21,7 @@
     </header>
     <div class="ui container exercise">
       <div class="ui raised card m-auto">
+        <!--Choose an exercise type and different inputs will appear-->
         <h2>Add Your Exercise</h2>
         <form action="POST">
           <div class="workout-type">
@@ -67,6 +68,7 @@
               <input type="number" name="resistance-duration" id="resistance-duration" placeholder="10" />
             </div>
           </div>
+          <!--Click 'complete' if finished adding exercises, click 'add exercise' if have another exercise to add-->
           <div class="buttons">
             <button disabled class="huge ui blue button complete">
               Complete
@@ -79,6 +81,7 @@
       </div>
     </div>
   </div>
+  <!--Appears when submit button is clicked, otherwise it is hidden-->
   <div id="toast">
     Workout Added Successfully!
   </div>

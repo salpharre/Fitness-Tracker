@@ -1,11 +1,13 @@
+//Requires mongoose for creating the schema
 const mongoose = require("mongoose");
-
+//creates new schema using mongoose to set up the collection and document in mongodb
 const Schema = mongoose.Schema;
 
 const workoutSchema = new Schema(
     {
         day: {
-            type: Date
+            type: Date,
+            default: Date.now()
         },
         exercises: [
             {
@@ -24,9 +26,15 @@ const workoutSchema = new Schema(
                     trim: true,
                     required: "Enter a time in minutes"
                 },
+                distance: {
+                    type: Number,
+                    trim: true,
+                    required: "Enter a distance in miles"
+                },
                 weight: {
                     type: Number,
                     trim: true,
+                    required: "Enter a weight in lbs"
                 },
                 reps: {
                     type: Number,
@@ -56,7 +64,7 @@ workoutSchema.virtual("totalDuration").get(function () {
         return total + exercise.duration;
     }, 0);
 });
-
+//collection is exported
 const Workout = mongoose.model("exercises", workoutSchema);
 
 module.exports = Workout;

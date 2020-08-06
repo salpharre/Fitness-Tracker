@@ -1,3 +1,4 @@
+//Creates all the api calls, to be called when needed in other js files
 const API = {
   async getLastWorkout() {
     let res;

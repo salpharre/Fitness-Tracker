@@ -1,3 +1,5 @@
+//Grabs id from last workout and adds it to the query string (to use later when want to 'continue' workout and add more exercises)
+//If there is no 'last workout' then continue button does not appear
 init();
 
 async function init() {

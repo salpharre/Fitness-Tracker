@@ -1,3 +1,4 @@
+//checks for last workout, grabs id to store in an attribute, and renders data in index html
 async function initWorkout() {
   const lastWorkout = await API.getLastWorkout();
   console.log("Last workout:", lastWorkout);
@@ -18,7 +19,7 @@ async function initWorkout() {
     renderNoWorkoutText()
   }
 }
-
+//Reduces the different values from exercises array and returns the sum of each exercise
 function tallyExercises(exercises) {
   const tallied = exercises.reduce((acc, curr) => {
     if (curr.type === "resistance") {
@@ -32,7 +33,7 @@ function tallyExercises(exercises) {
   }, {});
   return tallied;
 }
-
+//formats date 
 function formatDate(date) {
   const options = {
     weekday: "long",
@@ -43,7 +44,7 @@ function formatDate(date) {
 
   return new Date(date).toLocaleDateString(options);
 }
-
+//Renders data from last workout on index html
 function renderWorkoutSummary(summary) {
   const container = document.querySelector(".workout-stats");
 
@@ -56,7 +57,7 @@ function renderWorkoutSummary(summary) {
     totalReps: "Total Reps Performed",
     totalDistance: "Total Distance Covered"
   };
-
+  //Dynamically created html for each value in the workoutKeyMap object
   Object.keys(summary).forEach(key => {
     const p = document.createElement("p");
     const strong = document.createElement("strong");
@@ -70,7 +71,7 @@ function renderWorkoutSummary(summary) {
     container.appendChild(p);
   });
 }
-
+//Displays if there is no data from the last workout
 function renderNoWorkoutText() {
   const container = document.querySelector(".workout-stats");
   const p = document.createElement("p");
