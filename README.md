@@ -1,6 +1,6 @@
 # Fitness-Tracker
 
-![GitHub last commit](https://img.shields.io/github/last-commit/salpharre/Fitness-Tracker) ![npm version](https://badge.fury.io/js/inquirer.svg)
+![GitHub last commit](https://img.shields.io/github/last-commit/salpharre/Fitness-Tracker) [![Known Vulnerabilities](https://snyk.io/test/github/salpharre/Fitness-Tracker/badge.svg)](https://snyk.io/test/github/{username}/{repo}) ![npm version](https://badge.fury.io/js/inquirer.svg)
 
 Fitness tracker uses mongodb, mongoose and chart.js to keep track of your workouts and the number of exercises (resistance or cardio) per workout.
 
