@@ -16,7 +16,7 @@ Fitness tracker uses mongodb, mongoose and chart.js to keep track of your workou
 
 ### Demo
 
-For [webpage](https://fitness-for-you-tracker.herokuapp.com/)
+<!---For [webpage](https://fitness-for-you-tracker.herokuapp.com/)--->
 
 For [demo](https://youtu.be/JFVURvqv3Gg)
 
